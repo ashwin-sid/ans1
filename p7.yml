@@ -1,0 +1,27 @@
+---
+# BASH shell clish command configuration
+ - name: gather information6
+   connection: network_cli
+   hosts: ckp
+   tasks:
+
+     - name: get config 
+       cli_command:
+         command: clish -c "show configuration"
+       register: result1
+
+     - name: DEBUG section
+       debug: var=result1.stdout_lines
+#       debug: var=result1
+
+#     - name: write config to file 
+#       copy:
+#         content: "{{result1.stdout_lines}}"
+#         dest: "/tmp/cfg011.txt"
+#         delegate_to: localhost
+
+#     - name: write version 
+#       local_action:  copy content={{ result1.stdout_lines }} dest=/tmp/cfg11.txt
+
+     - name: write version 
+       local_action:  copy content={{ result1.stdout_lines|join('\n') }} dest=/tmp/cfg12.txt

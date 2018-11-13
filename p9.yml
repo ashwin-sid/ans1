@@ -1,0 +1,19 @@
+- hosts: ckp
+  gather_facts: False
+  vars_prompt:
+    - name: "pass"
+      prompt: "Enter Password:-"
+
+  tasks:
+    - name: Ansible prompt example.
+      debug:
+        msg: "{{ pass }}"
+
+    - name: gather information
+      connection: network_cli
+        password: "{{ pass }}"
+  # hosts: ckp
+
+    - name: get config 
+      cli_command:
+        command: show interfaces

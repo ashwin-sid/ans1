@@ -1,0 +1,14 @@
+---
+#CLISH shell clish command
+ - name: gather information
+   connection: network_cli
+   hosts: ckp
+   tasks:
+
+     - name: get config 
+       cli_command:
+         command: show interface eth0
+#---         answer: cfg
+     - name: get ver
+       cli_command:
+         command: show version all

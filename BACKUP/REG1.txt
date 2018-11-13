@@ -1,0 +1,11 @@
+This is Check Point's software version R80.10 - Build 435
+Platform: VMware Virtual Platform
+CPU Model: Intel(R) Xeon(R) CPU           X5570  
+CPU Frequency: 2925.661
+Number of Cores: 2
+CPU Hyperthreading: Disabled
+Platform: VMware Virtual Platform
+CPU Model: Intel(R) Xeon(R) CPU           X5570  
+CPU Frequency: 2925.661
+Number of Cores: 2
+CPU Hyperthreading: Disabled

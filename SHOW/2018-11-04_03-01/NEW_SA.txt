@@ -1,0 +1,5 @@
+Platform: VMware Virtual Platform
+CPU Model: Intel(R) Xeon(R) CPU           X5570  
+CPU Frequency: 2925.661
+Number of Cores: 2
+CPU Hyperthreading: Disabled

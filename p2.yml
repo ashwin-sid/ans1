@@ -1,0 +1,10 @@
+---
+
+ - name: gather information
+   connection: network_cli
+   hosts: all
+   tasks:
+
+     - name: get config 
+       cli_command:
+         command: ls

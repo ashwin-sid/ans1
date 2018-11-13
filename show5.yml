@@ -1,0 +1,38 @@
+---
+# BASH command configuration
+# set file with external command list 
+
+
+ - hosts: localhost
+   tasks:
+    - command: /bin/echo "{{ lookup('pipe','date +%Y-%m-%d_%H-%M') }}"
+      register: foo
+
+    - file:
+        path: ../SHOW/{{ hostvars['localhost']['foo'].stdout }}
+        state: directory
+
+
+
+ - hosts: ckp
+   serial: 11
+   gather_facts: no
+   connection: network_cli
+   vars:
+   #  pren: "{{ lookup('pipe','date +%Y-%m-%d_%H-%M') }}"
+    # p2: "{{ lookup('env','USER') }}"
+   tasks:
+#     - debug: var=hostvars['localhost']['foo']
+
+     - name: set clish
+       cli_command:
+         command: clish
+
+     - name: set pager
+       cli_command:
+         command: set clienv rows 0
+
+     - name: set hostname 
+       cli_command:
+         command: "{{ item }}"
+       with_lines: cat cmd.txt

@@ -1,0 +1,22 @@
+---
+# clish command configuration
+ - name: gather information6
+   connection: network_cli
+   hosts: ckp
+   tasks:
+
+     - name: set pager
+       cli_command:
+         command: set clienv rows 0
+
+     - name: get config 
+       cli_command:
+         command: show configuration 
+       register: result1
+
+     - name: DEBUG section
+       debug: var=result1.stdout_lines
+#       debug: var=result1
+
+     - name: write version 
+       local_action:  copy content={{ result1.stdout_lines|join('\n') }} dest=/tmp/cfg13.txt

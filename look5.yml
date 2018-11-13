@@ -1,0 +1,23 @@
+---
+- name: demo lookups
+  hosts: local
+
+  tasks:
+    - name: lookup of a csv file
+      debug: msg="{{ lookup('file','cmd.txt') }}"
+
+
+    - name: dd
+      debug: var=msg
+    - name: we could use file direclty, but this shows output from command
+      debug: msg="{{ item }} is a line running cat on /etc/motd"
+      with_lines: cat gamma.csv
+    
+    - name: dd2 
+      debug: msg="the value of foo.txt is {{lookup('file', 'foo.txt') }}" 
+
+    - name: dd2 
+      debug: var=item
+      with_file:
+        - "foo.txt"
+        - "cmd.txt"

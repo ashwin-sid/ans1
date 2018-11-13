@@ -1,0 +1,37 @@
+---
+# clish command configuration
+ - name: gather information6
+   connection: network_cli
+   hosts: ckp
+   vars:
+     pren: "{{ lookup('pipe','date +%Y-%m-%d_%H-%M') }}"
+
+   tasks:
+
+     - name: set pager
+       cli_command:
+         command: set clienv rows 0
+
+     - name: get config 
+       cli_command:
+         command: show hostname
+       register: result1
+
+     - name: DEBUG section
+       debug: var=result1.stdout_lines
+#       debug: var=result1
+
+     - name: get configuration
+       cli_command:
+         command: show configuration
+       register: result2
+
+     - name: create dir
+       local_action:
+         module: file
+         path: BACKUP/{{ result1.stdout }}
+         state: directory
+
+     - name: write version
+       local_action:  copy content={{ result2.stdout_lines|join('\n') }} dest=BACKUP/{{ result1.stdout }}/{{ pren }}.txt
+

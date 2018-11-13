@@ -1,0 +1,16 @@
+---
+
+ - name: gather information
+   connection: network_cli
+   hosts: ckp
+   tasks:
+
+     - name: debug stmnt
+       debug: msg="testing debugging"
+
+     - name: get config 
+       cli_command:
+         command: "{{ item }}"
+       loop:
+         - show version all
+         - show asset all
