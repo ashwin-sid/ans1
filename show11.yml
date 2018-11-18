@@ -30,7 +30,7 @@
          - clish
          - set clienv rows 0
 
-     - name: set hostname 
+     - name: SHOW CMDS
        cli_command:
          command: "{{ item }}"
        with_lines: cat cmd.txt
@@ -40,9 +40,13 @@
        debug:
          var: reg1
 
-     - name: write version2
-       #local_action:  lineinfile path=BACKUP/REG1.txt line={{ reg1.results[0].stdout_lines|join('\n') }} create=yes
-       #local_action:  lineinfile path=BACKUP/REG1.txt line={{ item.stdout_lines|join('\n') }} create=yes
+     - name: write version1
        local_action:  lineinfile path=BACKUP/REG1.txt line={{ item.item }} create=yes
        loop: "{{ reg1.results }}" 
-       #with_dict: "{{ reg1.results }}" 
+
+     - name: write version2
+       local_action:  lineinfile path=BACKUP/REG1.txt line="========================="
+
+     - name: write version3
+       local_action:  lineinfile path=BACKUP/REG1.txt line={{ item.stdout_lines|join('\n') }}
+       loop: "{{ reg1.results }}" 
