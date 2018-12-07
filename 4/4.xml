@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="5.xsl"?>
+<cnotes>
+  <cmd>
+    <cmdClass>HA</cmdClass>
+    <cmdType>an</cmdType>
+    <cmdTitle>cphaprob</cmdTitle>
+    <cmdNotesBrf>Gets status of HA and interface list </cmdNotesBrf>
+	<cmdNotesExt>  Ext. Notes Text </cmdNotesExt>
+    <cmdSyntax>cphaprob status</cmdSyntax>
+    <cmdOption> 
+Usage:
+
+cphaprob [-vs &lt;vsid&gt;] state .... Members states
+cphaprob [-a][-m] if ........... Interfaces status. use -m flag to view VLAN monitoring scheme
+cphaprob syncnewver ............ Synchronization version
+
+The following commands are NOT applicable for 3rd party:
+
+cphaprob -d &lt;device&gt; -t &lt;timeout(sec)&gt; -s &lt;ok|init|problem&gt; [-p] [-g] register
+cphaprob -f &lt;file&gt; [-g] register
+cphaprob -d &lt;device&gt; [-p] [-g] unregister
+cphaprob -a [-g] unregister
+cphaprob -d &lt;device&gt; -s &lt;ok|init|problem&gt; [-g] report
+cphaprob [-i[a]] [-e] [-l] list
+cphaprob igmp ......................... IGMP membership status
+cphaprob [-reset] ldstat .............. Sync serialization statistics
+cphaprob [-reset] syncstat ............ Sync transport layer statistics
+cphaprob fcustat ...................... Full connectivity upgrade statistics between minor versions
+cphaprob tablestat .................... Cluster tables
+cphaprob routedifcs ................... Monitored routed interfaces
+cphaprob [-vs &lt;vsid&gt;][-k][-S] mmagic .. MAC magic information
+cphaprob role ......................... Members roles
+</cmdOption>
+	<cmdExample>cphaprob stat
+Cluster Mode:   High Availability (Active Up) with IGMP Membership
+
+Number     Unique Address  Assigned Load   State
+
+1          192.168.254.1   0%              Standby
+2 (local)  192.168.254.2   100%            Active
+
+Local member is in current state since Sat Jul 28 10:16:58 2018
+
+DISPLAY "INTERFACE" LIST 
+[Expert@Ufw1:0]# cphaprob -l list
+
+Built-in Devices:
+
+Device Name: Interface Active Check
+Current state: OK
+
+Device Name: Recovery Delay
+Current state: OK
+
+Registered Devices:
+
+Device Name: Synchronization
+Registration number: 0
+Timeout: none
+Current state: OK
+Time since last report: 541630 sec
+
+Device Name: Filter
+Registration number: 1
+Timeout: none
+Current state: OK
+Time since last report: 541618 sec
+
+Device Name: routed
+Registration number: 2
+Timeout: none
+Current state: OK
+Time since last report: 541606 sec
+
+Device Name: fwd
+Registration number: 3
+Timeout: 30 sec
+Current state: OK
+Time since last report: 2.83072e+06 sec
+Process Status: UP
+
+Device Name: cphad
+Registration number: 4
+Timeout: 30 sec
+Current state: OK
+Time since last report: 2.83072e+06 sec
+Process Status: UP
+
+ </cmdExample>
+  </cmd>
+  <cmd>
+    <cmdClass>HA</cmdClass>
+    <cmdType>an</cmdType>
+    <cmdTitle>fw</cmdTitle>
+    <cmdNotesBrf>Get number of current connections</cmdNotesBrf>
+	<cmdNotesExt>  Ext. Notes Text </cmdNotesExt>
+    <cmdSyntax>fw tab -s -t connections</cmdSyntax>
+    <cmdOption>1988</cmdOption>
+	<cmdExample> EXAMPLE skdsldlskdl </cmdExample>
+  </cmd>
+  <cmd>
+    <cmdClass>Greatest Hits</cmdClass>
+    <cmdType>Dolly Parton</cmdType>
+    <cmdTitle>USA</cmdTitle>
+    <cmdNotesBrf>RCA</cmdNotesBrf>
+	<cmdNotesExt>  Ext. Notes Text </cmdNotesExt>
+    <cmdSyntax>9.90</cmdSyntax>
+    <cmdOption>1982</cmdOption>
+	<cmdExample> EXAMPLE skdsldlskdl </cmdExample>
+  </cmd>
+  <cmd>
+    <cmdClass>Still got the blues</cmdClass>
+    <cmdType>Gary Moore</cmdType>
+    <cmdTitle>UK</cmdTitle>
+    <cmdNotesBrf>Virgin records</cmdNotesBrf>
+	<cmdNotesExt>  Ext. Notes Text </cmdNotesExt>
+    <cmdSyntax>10.20</cmdSyntax>
+    <cmdOption>1990</cmdOption>
+	<cmdExample> EXAMPLE skdsldlskdl </cmdExample>
+  </cmd>
+  <cmd>
+    <cmdClass>Eros</cmdClass>
+    <cmdType>Eros Ramazzotti</cmdType>
+    <cmdTitle>EU</cmdTitle>
+    <cmdNotesBrf>BMG</cmdNotesBrf>
+	<cmdNotesExt>  Ext. Notes Text </cmdNotesExt>
+    <cmdSyntax>9.90</cmdSyntax>
+    <cmdOption>1997</cmdOption>
+	<cmdExample> EXAMPLE skdsldlskdl </cmdExample>
+  </cmd>
+  <cmd>
+    <cmdClass>One night only</cmdClass>
+    <cmdType>Bee Gees</cmdType>
+    <cmdTitle>UK</cmdTitle>
+    <cmdNotesBrf>Polydor</cmdNotesBrf>
+	<cmdNotesExt>  Ext. Notes Text </cmdNotesExt>
+    <cmdSyntax>10.90</cmdSyntax>
+    <cmdOption>1998</cmdOption>
+	<cmdExample> EXAMPLE skdsldlskdl </cmdExample>
+  </cmd>
+  <cmd>
+    <cmdClass>Sylvias Mother</cmdClass>
+    <cmdType>Dr.Hook</cmdType>
+    <cmdTitle>UK</cmdTitle>
+    <cmdNotesBrf>CBS</cmdNotesBrf>
+	<cmdNotesExt>  Ext. Notes Text </cmdNotesExt>
+    <cmdSyntax>8.10</cmdSyntax>
+    <cmdOption>1973</cmdOption>
+	<cmdExample> EXAMPLE skdsldlskdl </cmdExample>
+  </cmd>
+  <cmd>
+    <cmdClass>Maggie May</cmdClass>
+    <cmdType>Rod Stewart</cmdType>
+    <cmdTitle>UK</cmdTitle>
+    <cmdNotesBrf>Pickwick</cmdNotesBrf>
+	<cmdNotesExt>  Ext. Notes Text </cmdNotesExt>
+    <cmdSyntax>8.50</cmdSyntax>
+    <cmdOption>1990</cmdOption>
+	<cmdExample> EXAMPLE skdsldlskdl </cmdExample>
+  </cmd>
+  <cmd>
+    <cmdClass>Romanza</cmdClass>
+    <cmdType>andrea Bocelli</cmdType>
+    <cmdTitle>EU</cmdTitle>
+    <cmdNotesBrf>Polydor</cmdNotesBrf>
+	<cmdNotesExt>  Ext. Notes Text </cmdNotesExt>
+    <cmdSyntax>10.80</cmdSyntax>
+    <cmdOption>1996</cmdOption>
+	<cmdExample> EXAMPLE skdsldlskdl </cmdExample>
+  </cmd>
+  <cmd>
+    <cmdClass>When a man </cmdClass>
+    <cmdType>Percy Sledge</cmdType>
+    <cmdTitle>USA</cmdTitle>
+    <cmdNotesBrf>Atlantic</cmdNotesBrf>
+	<cmdNotesExt>  Ext. Notes Text </cmdNotesExt>
+    <cmdSyntax>8.70</cmdSyntax>
+    <cmdOption>1987</cmdOption>
+	<cmdExample> EXAMPLE skdsldlskdl </cmdExample>
+  </cmd>
+  <cmd>
+    <cmdClass>Black angel</cmdClass>
+    <cmdType>Savage Rose</cmdType>
+    <cmdTitle>EU</cmdTitle>
+    <cmdNotesBrf>Mega</cmdNotesBrf>
+	<cmdNotesExt>  Ext. Notes Text </cmdNotesExt>
+    <cmdSyntax>10.90</cmdSyntax>
+    <cmdOption>1995</cmdOption>
+	<cmdExample> EXAMPLE skdsldlskdl </cmdExample>
+  </cmd>
+  <cmd>
+    <cmdClass>1999 Grammy Nominees</cmdClass>
+    <cmdType>Many</cmdType>
+    <cmdTitle>USA</cmdTitle>
+    <cmdNotesBrf>Grammy</cmdNotesBrf>
+	<cmdNotesExt>  Ext. Notes Text </cmdNotesExt>
+    <cmdSyntax>10.20</cmdSyntax>
+    <cmdOption>1999</cmdOption>
+	<cmdExample> EXAMPLE skdsldlskdl </cmdExample>
+  </cmd>
+  <cmd>
+    <cmdClass>For the good times</cmdClass>
+    <cmdType>Kenny Rogers</cmdType>
+    <cmdTitle>UK</cmdTitle>
+    <cmdNotesBrf>Mucik Master</cmdNotesBrf>
+	<cmdNotesExt>  Ext. Notes Text </cmdNotesExt>
+    <cmdSyntax>8.70</cmdSyntax>
+    <cmdOption>1995</cmdOption>
+	<cmdExample> EXAMPLE skdsldlskdl </cmdExample>
+  </cmd>
+  <cmd>
+    <cmdClass>Big Willie style</cmdClass>
+    <cmdType>Will Smith</cmdType>
+    <cmdTitle>USA</cmdTitle>
+    <cmdNotesBrf>Columbia</cmdNotesBrf>
+	<cmdNotesExt>  Ext. Notes Text </cmdNotesExt>
+    <cmdSyntax>9.90</cmdSyntax>
+    <cmdOption>1997</cmdOption>
+	<cmdExample> EXAMPLE skdsldlskdl </cmdExample>
+  </cmd>
+  <cmd>
+    <cmdClass>Tupelo Honey</cmdClass>
+    <cmdType>Van Morrison</cmdType>
+    <cmdTitle>UK</cmdTitle>
+    <cmdNotesBrf>Polydor</cmdNotesBrf>
+	<cmdNotesExt>  Ext. Notes Text </cmdNotesExt>
+    <cmdSyntax>8.20</cmdSyntax>
+    <cmdOption>1971</cmdOption>
+	<cmdExample> EXAMPLE skdsldlskdl </cmdExample>
+  </cmd>
+  <cmd>
+    <cmdClass>Soulsville</cmdClass>
+    <cmdType>Jorn Hoel</cmdType>
+    <cmdTitle>Norway</cmdTitle>
+    <cmdNotesBrf>WEA</cmdNotesBrf>
+	<cmdNotesExt>  Ext. Notes Text </cmdNotesExt>
+    <cmdSyntax>7.90</cmdSyntax>
+    <cmdOption>1996</cmdOption>
+	<cmdExample> EXAMPLE skdsldlskdl </cmdExample>
+  </cmd>
+  <cmd>
+    <cmdClass>The very best of</cmdClass>
+    <cmdType>Cat Stevens</cmdType>
+    <cmdTitle>UK</cmdTitle>
+    <cmdNotesBrf>Island</cmdNotesBrf>
+	<cmdNotesExt>  Ext. Notes Text </cmdNotesExt>
+    <cmdSyntax>8.90</cmdSyntax>
+    <cmdOption>1990</cmdOption>
+	<cmdExample> EXAMPLE skdsldlskdl </cmdExample>
+  </cmd>
+  <cmd>
+    <cmdClass>Stop</cmdClass>
+    <cmdType>Sam Brown</cmdType>
+    <cmdTitle>UK</cmdTitle>
+    <cmdNotesBrf>A and M</cmdNotesBrf>
+	<cmdNotesExt>  Ext. Notes Text </cmdNotesExt>
+    <cmdSyntax>8.90</cmdSyntax>
+    <cmdOption>1988</cmdOption>
+	<cmdExample> EXAMPLE skdsldlskdl </cmdExample>
+  </cmd>
+  <cmd>
+    <cmdClass>Bridge of Spies</cmdClass>
+    <cmdType>T`Pau</cmdType>
+    <cmdTitle>UK</cmdTitle>
+    <cmdNotesBrf>Siren</cmdNotesBrf>
+	<cmdNotesExt>  Ext. Notes Text </cmdNotesExt>
+    <cmdSyntax>7.90</cmdSyntax>
+    <cmdOption>1987</cmdOption>
+	<cmdExample> EXAMPLE skdsldlskdl </cmdExample>
+  </cmd>
+  <cmd>
+    <cmdClass>Private Dancer</cmdClass>
+    <cmdType>Tina Turner</cmdType>
+    <cmdTitle>UK</cmdTitle>
+    <cmdNotesBrf>Capitol</cmdNotesBrf>
+	<cmdNotesExt>  Ext. Notes Text </cmdNotesExt>
+    <cmdSyntax>8.90</cmdSyntax>
+    <cmdOption>1983</cmdOption>
+	<cmdExample> EXAMPLE skdsldlskdl </cmdExample>
+  </cmd>
+  <cmd>
+    <cmdClass>Midt om natten</cmdClass>
+    <cmdType>Kim Larsen</cmdType>
+    <cmdTitle>EU</cmdTitle>
+    <cmdNotesBrf>Medley</cmdNotesBrf>
+	<cmdNotesExt>  Ext. Notes Text </cmdNotesExt>
+    <cmdSyntax>7.80</cmdSyntax>
+    <cmdOption>1983</cmdOption>
+	<cmdExample> EXAMPLE skdsldlskdl </cmdExample>
+  </cmd>
+  <cmd>
+    <cmdClass>Pavarotti Concert</cmdClass>
+    <cmdType>Luciano Pavarotti</cmdType>
+    <cmdTitle>UK</cmdTitle>
+    <cmdNotesBrf>DECCA</cmdNotesBrf>
+	<cmdNotesExt>  Ext. Notes Text </cmdNotesExt>
+    <cmdSyntax>9.90</cmdSyntax>
+    <cmdOption>1991</cmdOption>
+	<cmdExample> EXAMPLE skdsldlskdl </cmdExample>
+  </cmd>
+  <cmd>
+    <cmdClass>The dock of the bay</cmdClass>
+    <cmdType>Otis Redding</cmdType>
+    <cmdTitle>USA</cmdTitle>
+    <cmdNotesBrf>Stax Records</cmdNotesBrf>
+	<cmdNotesExt>  Ext. Notes Text </cmdNotesExt>
+    <cmdSyntax>7.90</cmdSyntax>
+    <cmdOption>1968</cmdOption>
+	<cmdExample> EXAMPLE skdsldlskdl </cmdExample>
+  </cmd>
+  <cmd>
+    <cmdClass>Picture book</cmdClass>
+    <cmdType>Simply Red</cmdType>
+    <cmdTitle>EU</cmdTitle>
+    <cmdNotesBrf>Elektra</cmdNotesBrf>
+	<cmdNotesExt>  Ext. Notes Text </cmdNotesExt>
+    <cmdSyntax>7.20</cmdSyntax>
+    <cmdOption>1985</cmdOption>
+	<cmdExample> EXAMPLE skdsldlskdl </cmdExample>
+  </cmd>
+  <cmd>
+    <cmdClass>Red</cmdClass>
+    <cmdType>The Communards</cmdType>
+    <cmdTitle>UK</cmdTitle>
+    <cmdNotesBrf>London</cmdNotesBrf>
+	<cmdNotesExt>  Ext. Notes Text </cmdNotesExt>
+    <cmdSyntax>7.80</cmdSyntax>
+    <cmdOption>1987</cmdOption>
+	<cmdExample> EXAMPLE skdsldlskdl </cmdExample>
+  </cmd>
+  <cmd>
+    <cmdClass>Unchain my heart</cmdClass>
+    <cmdType>Joe Cocker</cmdType>
+    <cmdTitle>USA</cmdTitle>
+    <cmdNotesBrf>EMI</cmdNotesBrf>
+	<cmdNotesExt>  Ext. Notes Text </cmdNotesExt>
+    <cmdSyntax>8.20</cmdSyntax>
+    <cmdOption>1987</cmdOption>
+	<cmdExample> EXAMPLE skdsldlskdl </cmdExample>
+  </cmd>
+
+  <cmd>
+    <cmdClass>HA</cmdClass>
+    <cmdType>an</cmdType>
+    <cmdTitle>cphaprob</cmdTitle>
+    <cmdNotesBrf>Gets status of HA and interface list </cmdNotesBrf>
+	<cmdNotesExt>  Ext. Notes Text </cmdNotesExt>
+    <cmdSyntax>cphaprob status</cmdSyntax>
+    <cmdOption> 
+Usage:
+
+cphaprob [-vs &lt;vsid&gt;] state .... Members states
+cphaprob [-a][-m] if ........... Interfaces status. use -m flag to view VLAN monitoring scheme
+cphaprob syncnewver ............ Synchronization version
+
+The following commands are NOT applicable for 3rd party:
+
+cphaprob -d &lt;device&gt; -t &lt;timeout(sec)&gt; -s &lt;ok|init|problem&gt; [-p] [-g] register
+cphaprob -f &lt;file&gt; [-g] register
+cphaprob -d &lt;device&gt; [-p] [-g] unregister
+cphaprob -a [-g] unregister
+cphaprob -d &lt;device&gt; -s &lt;ok|init|problem&gt; [-g] report
+cphaprob [-i[a]] [-e] [-l] list
+cphaprob igmp ......................... IGMP membership status
+cphaprob [-reset] ldstat .............. Sync serialization statistics
+cphaprob [-reset] syncstat ............ Sync transport layer statistics
+cphaprob fcustat ...................... Full connectivity upgrade statistics between minor versions
+cphaprob tablestat .................... Cluster tables
+cphaprob routedifcs ................... Monitored routed interfaces
+cphaprob [-vs &lt;vsid&gt;][-k][-S] mmagic .. MAC magic information
+cphaprob role ......................... Members roles
+</cmdOption>
+	<cmdExample>cphaprob stat
+Cluster Mode:   High Availability (Active Up) with IGMP Membership
+
+Number     Unique Address  Assigned Load   State
+
+1          192.168.254.1   0%              Standby
+2 (local)  192.168.254.2   100%            Active
+
+Local member is in current state since Sat Jul 28 10:16:58 2018
+
+DISPLAY "INTERFACE" LIST 
+[Expert@Ufw1:0]# cphaprob -l list
+
+Built-in Devices:
+
+Device Name: Interface Active Check
+Current state: OK
+
+Device Name: Recovery Delay
+Current state: OK
+
+Registered Devices:
+
+Device Name: Synchronization
+Registration number: 0
+Timeout: none
+Current state: OK
+Time since last report: 541630 sec
+
+Device Name: Filter
+Registration number: 1
+Timeout: none
+Current state: OK
+Time since last report: 541618 sec
+
+Device Name: routed
+Registration number: 2
+Timeout: none
+Current state: OK
+Time since last report: 541606 sec
+
+Device Name: fwd
+Registration number: 3
+Timeout: 30 sec
+Current state: OK
+Time since last report: 2.83072e+06 sec
+Process Status: UP
+
+Device Name: cphad
+Registration number: 4
+Timeout: 30 sec
+Current state: OK
+Time since last report: 2.83072e+06 sec
+Process Status: UP
+
+ </cmdExample>
+  </cmd>  
+  
+  
+</cnotes>
+
