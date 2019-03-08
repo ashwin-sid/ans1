@@ -1,6 +1,5 @@
 ---
 # BASH command configuration
-# set file with external command list 
 
 
  - hosts: localhost
@@ -14,25 +13,21 @@
 
 
 
- - hosts: ckp
+ - hosts: LOCAL
    serial: 11
    gather_facts: no
-   connection: network_cli
-   vars:
-   #  pren: "{{ lookup('pipe','date +%Y-%m-%d_%H-%M') }}"
-    # p2: "{{ lookup('env','USER') }}"
+#   connection: network_cli
    tasks:
-#     - debug: var=hostvars['localhost']['foo']
 
-     - name: set clish
-       cli_command:
-         command: clish
+     - name: get status
+       command: hostname
+       register: result1
 
-     - name: set pager
-       cli_command:
-         command: set clienv rows 0
+     - name: write version
+       local_action:  copy content={{ result1.stdout_lines|join('\n') }} dest=../SHOW/{{ hostvars['localhost']['foo'].stdout }}/{{ inventory_hostname }}.txt
+       #local_action:  copy content={{ result1.stdout_lines|join('\n') }} dest=../SHOW/{{ hostvars['localhost']['foo'].stdout }}/test.txt
+       #local_action:  copy content={{ result1.stdout_lines|join('\n') }} dest=../SHOW/{{ hostvars['localhost']['foo'].stdout }}/{{ r0.stdout }}.txt
 
-     - name: set hostname 
+     - name: Logout
        cli_command:
-         command: "{{ item }}"
-       with_lines: cat cmd.txt
+         command: exit
