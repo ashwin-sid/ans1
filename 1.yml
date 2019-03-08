@@ -1,0 +1,29 @@
+---
+ - name: gather information
+   connection: network_cli
+   hosts: UK-TST-LAB01
+   vars:
+     pren: "{{ lookup('pipe','date +%Y-%m-%d_%H-%M') }}"
+
+   tasks:
+
+     - name: set clish
+       cli_command:
+         command: clish
+
+     - name: set pager
+       cli_command:
+         command: set clienv rows 0
+
+     - name: SHOW COMMAND2
+       cli_command:
+         command: show asset all
+       register: result3
+
+     - name: outputerere
+       debug: msg="{{ result3.stdout }}"
+
+     - name: generate fact from interface output
+       debug: msg="{{ result3.stdout | parse_cli('p1.yml') }}"
+
+     

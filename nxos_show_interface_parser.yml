@@ -1,0 +1,27 @@
+---
+# NXOS Show Interface Parser
+#    https://github.com/network-automation/ansible-network-parsers/blob/master/parsers/nxos/nxos_show_interface_parser.yml
+#
+#
+#
+#
+
+vars:
+  interface:
+    macadd: "{{ item[0].mac }}"
+    type: "{{ item[1].match[0] }}"
+    link_protocol_state: "{{ item[2].match[0] }}"
+    mtu: "{{ item[3].match[0] }}"
+    port_speed: "{{ item[4].match[0] }}"
+    duplex: "{{ item[5].match[0] }}"
+
+keys:
+  interfaces:
+    value: "{{ interface }}"
+    items:
+      - "^mac\-addr (?P<mac>S+)"
+      - "\\s+type (.+)"
+      - "\\s+link-state link (.+)"
+      - "\\s+mtu (\\d+)"
+      - "\\s+link speed (\\S+)"
+      - "\\s+duplex (\\w+)"

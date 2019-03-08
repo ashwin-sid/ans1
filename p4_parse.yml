@@ -1,0 +1,37 @@
+---
+- name: PARSER META DATA
+  parser_metadata:
+    version: 1.0
+    command: show ip interface brief
+    network_os: vyos
+
+- name: MATCH PATTERN
+  pattern_match:
+    #regex: "^(\\S+)\\s+(\\d+\\.\\d+\\.\\d+\\.\\d+).*(up|administratively down).*(up|down)"
+    #regex: "^(\\S+)\\s+(\\:).*(\\s+)"
+    #regex: "^(\\S+)"
+    #regex: "^(\\D+)[:].*\\s+"
+    #regex: "^(\\D+):(\\D+)"
+    #regex: "^(\\D+):([^/\n]+)"
+    #regex: "^([^/\n]+):([^/\n]+)"
+    regex: "^([^/\n]+): ([^/\n]+)"
+    match_all: yes
+  register: section
+  export: yes
+
+
+- name: GENERATE JSON DATA STRUCTURE
+  json_template:
+    template:
+      - key: "{{ item.matches.0 }}"
+        object:
+        - key: data
+          object:
+            - key: name
+              value: "{{ item.matches.0 }}"
+            - key: Value
+              value: "{{ item.matches.1 }}"
+  loop: "{{ section }}"
+  export: yes
+  register: facts1
+

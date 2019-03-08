@@ -1,0 +1,13 @@
+---
+vars:
+  vlan:
+    name: "{{ item.pname }}"
+    state: "{{ item.pvalue }}"
+
+keys:
+  vlans:
+    value: "{{ vlan }}"
+#    items: "^(?P<vlan_id>\\d+)\\s+(?P<name>\\w+)\\s+(?P<state>active|act/lshut|suspended)"
+    items: "^([?<pname>^/\n]+): (?<pvalue>[^/\n]+)"
+
+
