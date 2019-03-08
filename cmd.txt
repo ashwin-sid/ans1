@@ -1,3 +1,0 @@
-show asset all
-fw ver
-show interfaces all

@@ -1,8 +1,0 @@
----
- - hosts: all
-   tasks:
-   - name: sample 1
-     copy:
-       src: /root/34.txt
-       dest: /var/log/34.txt
-
