@@ -1,0 +1,80 @@
+Mar 31 00:17:35 192.168.1.1 1 2019-03-31T00:17:34.677Z FW-1 RT_FLOW - RT_FLOW_SESSION_DENY 
+Mar 31 00:00:23 192.168.1.1 1 2019-03-31T00:00:23.465Z FW-1 RT_FLOW - RT_FLOW_SESSION_CLOSE 
+
+ grep -i RT_FLOW_SESSION_CLOSE 03.31.log |  head | cut -d " " -f14
+source-address="192.168.1.10"
+source-address="192.168.1.10"
+
+ grep -i RT_FLOW_SESSION_CLOSE 03.31.log |  head | cut -d " " -f15
+source-port="59754"
+source-port="59757"
+ 
+grep -i RT_FLOW_SESSION_CLOSE 03.31.log |  head | cut -d " " -f16
+destination-address="40.79.65.78"
+destination-address="192.168.0.27"
+
+ grep -i RT_FLOW_SESSION_CLOSE 03.31.log |  head | cut -d " " -f17
+destination-port="443"
+destination-port="80"
+destination-port="80"
+
+ grep -i RT_FLOW_SESSION_CLOSE 03.31.log |  head | cut -d " " -f1,2,3
+Mar 31 00:00:23
+Mar 31 00:00:55
+Mar 31 00:01:23
+
+ grep -i RT_FLOW_SESSION_DENY  03.31.log | head | cut -d " " -f12
+source-address="192.168.1.10"
+source-address="192.168.1.10"
+
+grep -i RT_FLOW_SESSION_DENY  03.31.log | head | cut -d " " -f12
+source-address="192.168.1.10"
+source-address="192.168.1.10"
+
+$ grep -i RT_FLOW_SESSION_DENY  03.31.log | head | cut -d " " -f13
+source-port="51424"
+source-port="51424"
+
+ grep -i RT_FLOW_SESSION_DENY  03.31.log | head | cut -d " " -f14
+destination-address="216.58.210.42"
+destination-address="216.58.210.42"
+
+ grep -i RT_FLOW_SESSION_DENY  03.31.log | head | cut -d " " -f15
+destination-port="443"
+destination-port="443"
+destination-port="443"
+
+
+===============================================
+
+[asidhu@lon-sec-01 yaml]$ grep -i  RT_FLOW_SESSION_CLOSE ../log/03.31.log |    cut -d " " -f16  | cut -d "\"" -f2 |   sort |  uniq
+104.103.131.162
+104.103.139.30
+104.103.139.70
+104.103.143.161
+
+
+
+
+
+
+
+
+
+
+
+
+===================================YAML FILE 
+areas:
+  area_tags: [buildings, landuse, leisure, natural, aeroway]
+  linear_tags: [highway, barrier]
+generalized_tables:
+  landusages_gen0:
+    source: landusages_gen1
+    sql_filter: ST_Area(geometry)>500000.000000
+    tolerance: 200.0
+
+
+
+
+	
