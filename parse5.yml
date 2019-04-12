@@ -1,0 +1,54 @@
+####   GROUP REGEX SEARCH #####
+import re
+import subprocess
+import yaml
+
+erf = open("errfile.txt","a")
+destfile= 'dst.txt'  
+resolvefile='RESOLVE.yml'
+readresolf = open(resolvefile,"r")
+tmpoutputf = 'resolvtmp'
+tmpof = open(tmpoutputf,"w")
+
+with open(resolvefile, 'r') as f:
+    doc = yaml.load(f)
+
+
+
+with open(destfile) as fp:  
+   line = fp.readline()
+   cnt = 1
+   while line:
+       check = line.strip() in doc
+       if(not check):
+          #print("Line {}:        {}".format(cnt, line.strip()))
+          MyOut = subprocess.Popen(['dig', '-x', line.strip()],
+                      stdout=subprocess.PIPE,
+                      stderr=subprocess.STDOUT)
+          stdout,stderr = MyOut.communicate()
+          #print(stdout)
+          #print(stderr)
+
+          pattern = '(\;\; ANSWER SECTION\:)\\n(.*)'
+          txt = stdout.decode("utf-8")
+          a = re.search(pattern, txt)
+          pat2 = '(.{10,25})(IN[ \t]PTR[ \t])(.*)'
+          if a is not None:
+               b = re.search(pat2, a.group(2))
+               if b is not None:
+                     print("{} : {}".format(line.strip(), b.group(3)))
+                     str = line.strip() + ": " + b.group(3)
+                     print(str)
+                     tmpof.writelines(str+"\n")
+          else:
+               erf.write(line.strip()+'\n')
+          line = fp.readline()
+          cnt += 1
+
+       line = fp.readline()
+       cnt += 1 
+
+
+
+erf.close
+fp.close

@@ -1,0 +1,31 @@
+#!/bin/python3
+
+import yaml
+
+resolvefile='RESOLVE.yml'
+destfile='dst.txt'
+
+with open(resolvefile, 'r') as f:
+    doc = yaml.load(f)
+
+#print (txt)
+#print(type(doc))
+
+#for key in doc:
+#   print (key)
+#   print (key, doc[key])
+
+'192.168.1.14' in doc
+print('192.168.1.14' in doc)
+
+
+with open(destfile) as fp:
+   line = fp.readline()
+   cnt = 1
+   while line:
+       #print(line.strip() in doc)
+       check = line.strip() in doc
+       if(not check): print("YES")
+       line = fp.readline()
+       cnt += 1
+
