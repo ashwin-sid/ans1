@@ -1,0 +1,57 @@
+--https://github.com/GoreNetwork/Ansible-Config-Generation
+├── pla1.yml
+└── templates
+    ├── 3750_switch.j2
+    ├── base_router.j2
+    ├── base_switch.j2
+    ├── base_switch-orig.j2
+    ├── WS-C3650-24PD-S.j2
+    
+
+/etc/ansible/
+├── ansible.cfg
+├── ansible.cfg.orig
+├── group_vars
+│   └── all
+├── hosts
+├── host_vars
+│   ├── Device_ted.yml
+│   ├── host1.yml
+│   └── host2.yml
+
+          src=./templates/base_{{switch_or_router}}.j2
+          dest=./output/{{hostname}}.conf
+
+
+################### pla1.yml
+---
+
+  - name: Build Switches
+    hosts: TEST2
+    connection: local
+    gather_facts: no
+
+    tasks:
+      - name: BUILD SWITCH CONFIGURATION
+        template:
+          src=./templates/base_{{switch_or_router}}.j2
+          dest=./output/{{hostname}}.conf
+###################
+
+		  
+@@@/etc/ansible/hosts
+[TEST2]
+host1
+host2
+	
+host1   and   /etc/ansible/host_vars/host1.yml    are matched automatically 
+		  
+{{switch_or_router}} - /etc/ansible/host_vars/Host1.yml	
+{{hostname}}   - from /etc/ansible/host_vars/Host1.yml 
+
+{% include hardware_type %}  
+hardware_type: WS-C3650-24PD-S.j2  --- defined in Host1.yml 
+			WS-C3650-24PD-S.j2     --- kept in templates folder 
+				boot system flash:/{{IOS_WS_C3650_24PD_S}} ---- in WS-C3650-24PD-S.j2 
+						{{IOS_WS_C3650_24PD_S}}   --- from /etc/ansible/group_vars/all  (yaml file ) 
+ 
